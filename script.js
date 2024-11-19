@@ -1,22 +1,16 @@
-let currentExpression = "";
-
 function appendValue(value) {
-  currentExpression += value;
-  document.getElementById("result").value = currentExpression;
+  document.getElementById('result').value += value;
 }
 
 function clearResult() {
-  currentExpression = "";
-  document.getElementById("result").value = currentExpression;
+  document.getElementById('result').value = '';
 }
 
 function calculateResult() {
   try {
-    // Evaluate the mathematical expression
-    currentExpression = eval(currentExpression);
-    document.getElementById("result").value = currentExpression;
-  } catch (error) {
-    document.getElementById("result").value = "Error";
-    currentExpression = "";
+    const result = eval(document.getElementById('result').value);
+    document.getElementById('result').value = result;
+  } catch (e) {
+    document.getElementById('result').value = 'Error';
   }
 }
