@@ -12,6 +12,7 @@ body {
   align-items: center;
   height: 100vh;
   background-color: #f4f4f4;
+  margin: 0;
 }
 
 /* Calculator container */
@@ -20,7 +21,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 320px;
+  width: 300px;  /* Width adjusted */
 }
 
 /* Display area */
@@ -33,14 +34,17 @@ body {
   color: white;
   border: none;
   outline: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 /* Button grid */
 .buttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);  /* 4 equal columns */
+  gap: 10px;  /* 10px gap between buttons */
   padding: 20px;
+  grid-template-rows: repeat(5, auto);  /* Ensure 5 rows */
 }
 
 /* Button styles */
@@ -50,9 +54,13 @@ button {
   background-color: #444;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%; /* Make sure buttons stretch to fill grid space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button:hover {
@@ -63,12 +71,11 @@ button:active {
   background-color: #666;
 }
 
-/* Button sizes */
+/* Special buttons (e.g., clear, equals, and zero) */
 button.zero {
-  grid-column: span 2;
+  grid-column: span 2;  /* Zero button spans 2 columns */
 }
 
-/* Clear and equal buttons */
 button.clear {
   background-color: #e74c3c;
 }
